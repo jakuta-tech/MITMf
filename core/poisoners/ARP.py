@@ -139,7 +139,7 @@ class ARPpoisoner:
                 #print str(pkt[ARP].pdst) #ip of destination (Who is ...?)
 
                 if (str(pkt[ARP].hwdst) == '00:00:00:00:00:00' and str(pkt[ARP].pdst) == self.gatewayip and self.myip != str(pkt[ARP].psrc)):
-                    log.debug("[ARPWatch] {} is asking where the Gateway is. Sending the \"I'm the gateway biatch!\" reply!".format(pkt[ARP].psrc))
+                    log.debug("[ARPWatch] {} is asking where the Gateway is. Sending the \"I am the gateway biatch!\" reply!".format(pkt[ARP].psrc))
                     #send repoison packet
                     packet = ARP()
                     packet.op = 2
@@ -148,7 +148,7 @@ class ARPpoisoner:
                     packet.pdst = str(pkt[ARP].psrc)
 
                 elif (str(pkt[ARP].hwsrc) == self.gatewaymac and str(pkt[ARP].hwdst) == '00:00:00:00:00:00' and self.myip != str(pkt[ARP].pdst)):
-                    log.debug("[ARPWatch] Gateway asking where {} is. Sending the \"I'm {} biatch!\" reply!".format(pkt[ARP].pdst, pkt[ARP].pdst))
+                    log.debug("[ARPWatch] Gateway asking where {} is. Sending the \"I am {} biatch!\" reply!".format(pkt[ARP].pdst, pkt[ARP].pdst))
                     #send repoison packet
                     packet = ARP()
                     packet.op = 2

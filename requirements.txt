@@ -2,12 +2,13 @@ git+git://github.com/kti/python-netfilterqueue
 pyinotify
 pycrypto
 pyasn1
+pyasn1-modules
 cryptography
 Pillow
 netaddr
 scapy
 dnslib
-Twisted
+Twisted==15.5.0
 lxml
 pefile
 ipy
